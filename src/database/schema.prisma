@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String
+  cpf       String   @unique
+  birthDate DateTime @map("birth_date")
+  phone     String
+  address   Json?
+  isAdmin   Boolean  @default(false) @map("is_admin")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  schedule  Schedule[]
+
+  @@map("users")
+}
+
+model Procedure {
+  id        String     @id @default(uuid())
+  name      String
+  value     Int
+  duration  Int        @default(30)
+  createdAt DateTime   @default(now()) @map("created_at")
+  updatedAt DateTime   @updatedAt @map("updated_at")
+  schedule  Schedule[]
+
+  @@map("procedures")
+}
+
+model Client {
+  id        String     @id @default(uuid())
+  firstName String     @map("first_name")
+  surname   String
+  nickname  String?
+  email     String     @unique
+  cpf       String?    @unique
+  birthDate DateTime?  @map("birth_date")
+  phone     String
+  address   Json?
+  createdAt DateTime   @default(now()) @map("created_at")
+  updatedAt DateTime   @updatedAt @map("updated_at")
+  schedule  Schedule[]
+
+  @@map("clients")
+}
+
+model Schedule {
+  id         String      @id @default(uuid())
+  client     Client[]
+  procedures Procedure[]
+  user       User[]
+  date       DateTime
+  createdAt  DateTime    @default(now()) @map("created_at")
+  updatedAt  DateTime    @updatedAt @map("updated_at")
+
+
+  @@map("schedules")
+}

@@ -1,0 +1,566 @@
+{
+	"info": {
+		"_postman_id": "65a087ce-b238-4aa1-b4ab-1f293a861cf2",
+		"name": "Estetica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"email4@email.com\",\r\n  \"password\": \"123teste456\",\r\n  \"name\": \"Cleberson Saller\",\r\n  \"birthDate\": \"1998-09-19\",\r\n  \"phone\": \"5553912345678\",\r\n  \"cpf\": \"12345678941\",\r\n  \"address\": {\r\n    \"address1\": \"Rua 1\",\r\n    \"address2\": \"\",\r\n    \"address3\": \"\",\r\n    \"number\": 10,\r\n    \"cep\": \"12345678\",\r\n    \"alias\": \"Casa\"\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/signup",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/users/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4c9548a6-37c0-4ab2-906a-20016e55be0b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"isAdmin\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users?id=d2b56006-dff3-46ea-bc8a-43cb71e245bb",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "d2b56006-dff3-46ea-bc8a-43cb71e245bb"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/users?id=d2b56006-dff3-46ea-bc8a-43cb71e245bb",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "d2b56006-dff3-46ea-bc8a-43cb71e245bb"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@email.com\",\r\n  \"password\": \"teste123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "client",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Cleberson\",\r\n  \"surname\": \"Saller\",\r\n  \"nickname\": \"cSaller\",\r\n  \"email\": \"email2@email.com\",\r\n  \"cpf\": \"12345678911\",\r\n  \"birthDate\": \"1998-09-19\",\r\n  \"phone\": \"5553912345678\",\r\n  \"address\": {\r\n    \"address1\": \"Rua 1\",\r\n    \"address2\": \"\",\r\n    \"address3\": \"\",\r\n    \"number\": 10,\r\n    \"cep\": \"12345678\",\r\n    \"alias\": \"Casa\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/clients",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/clients/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clients",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "c82846c1-2386-46f0-94b1-c67ab9499708"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"phone\": \"5553912345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/clients?id=c82846c1-2386-46f0-94b1-c67ab9499708",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clients"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "c82846c1-2386-46f0-94b1-c67ab9499708"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/clients?id=c82846c1-2386-46f0-94b1-c67ab9499708",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clients"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "c82846c1-2386-46f0-94b1-c67ab9499708"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "procedure",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Procedimento 2\",\r\n  \"value\": 60,\r\n  \"duration\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/procedures",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"procedures"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/procedures/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"procedures",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "27ab6384-8c2f-44f9-8640-e20412fd8a9f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Cleberson Saller\",\r\n  \"value\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/procedures?id=27ab6384-8c2f-44f9-8640-e20412fd8a9f",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"procedures"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "27ab6384-8c2f-44f9-8640-e20412fd8a9f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/procedures?id=27ab6384-8c2f-44f9-8640-e20412fd8a9f",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"procedures"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "27ab6384-8c2f-44f9-8640-e20412fd8a9f"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "schedule",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"clientId\": \"5f254205-8140-450a-a8b8-af0514d10e61\",\r\n  \"procedures\": [\"9cc0d396-64cb-42e1-949e-d02db61af551\",\"47f278d0-25d2-4cdd-824e-ab16712db28c\"],\r\n  \"date\": \"2021-09-08 15:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/schedules",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"schedules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by client",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/schedules/client/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"schedules",
+								"client",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "60c0f9a3-bfdc-412a-8e2b-e0e65e142b06"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by schedule",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/schedules/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"schedules",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6f35af27-f930-4c17-879b-87a47d652664"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by time range",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/schedules/range?startDate=2021-09-07&endDate=2021-09-08",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"schedules",
+								"range"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2021-09-07"
+								},
+								{
+									"key": "endDate",
+									"value": "2021-09-08"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"date\": \"2021-09-09 17:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/schedules?id=6f35af27-f930-4c17-879b-87a47d652664",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"schedules"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6f35af27-f930-4c17-879b-87a47d652664"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/schedules?id=6f35af27-f930-4c17-879b-87a47d652664",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"schedules"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6f35af27-f930-4c17-879b-87a47d652664"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBjZjllY2NmLWU2NTQtNDBjOS1iYTk0LTQxMTU1MjkzOTFkMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NzIxMDk3OX0.Echmh0--LH3kh66SYwlewJfjjzqYUNo_bPlAQwN_ado",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:3000/v1"
+		}
+	]
+}

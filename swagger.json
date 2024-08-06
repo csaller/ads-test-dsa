@@ -1,0 +1,392 @@
+openapi: 3.0.0
+info:
+  title: Estetica
+  version: 1.0.0
+servers:
+  - url: https://csaller-agenda-dev.herokuapp.com/v1
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: user
+  - name: client
+  - name: procedure
+  - name: schedule
+paths:
+  /users/signup:
+    post:
+      tags:
+        - user
+      summary: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: email4@email.com
+                password: 123teste456
+                name: Cleberson Saller
+                birthDate: '1998-09-19'
+                phone: '5553912345678'
+                cpf: '12345678941'
+                address:
+                  address1: Rua 1
+                  address2: ''
+                  address3: ''
+                  number: 10
+                  cep: '12345678'
+                  alias: Casa
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /users/{id}:
+    get:
+      tags:
+        - user
+      summary: get
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: 4c9548a6-37c0-4ab2-906a-20016e55be0b
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /users:
+    patch:
+      tags:
+        - user
+      summary: update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                isAdmin: false
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+          example: d2b56006-dff3-46ea-bc8a-43cb71e245bb
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - user
+      summary: delete
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+          example: d2b56006-dff3-46ea-bc8a-43cb71e245bb
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /users/login:
+    post:
+      tags:
+        - user
+      summary: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: email4@email.com
+                password: 123teste456
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /clients:
+    post:
+      tags:
+        - client
+      summary: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                firstName: Cleberson
+                surname: Saller
+                nickname: cSaller
+                email: email2@email.com
+                cpf: '12345678911'
+                birthDate: '1998-09-19'
+                phone: '5553912345678'
+                address:
+                  address1: Rua 1
+                  address2: ''
+                  address3: ''
+                  number: 10
+                  cep: '12345678'
+                  alias: Casa
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - client
+      summary: update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                phone: '5553912345678'
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+          example: c82846c1-2386-46f0-94b1-c67ab9499708
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - client
+      summary: delete
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+          example: c82846c1-2386-46f0-94b1-c67ab9499708
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /clients/{id}:
+    get:
+      tags:
+        - client
+      summary: get
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: c82846c1-2386-46f0-94b1-c67ab9499708
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /procedures:
+    post:
+      tags:
+        - procedure
+      summary: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Procedimento 2
+                value: 60
+                duration: 30
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - procedure
+      summary: update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Cleberson Saller
+                value: 30
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+          example: 27ab6384-8c2f-44f9-8640-e20412fd8a9f
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - procedure
+      summary: delete
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+          example: 27ab6384-8c2f-44f9-8640-e20412fd8a9f
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /procedures/{id}:
+    get:
+      tags:
+        - procedure
+      summary: get
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: 27ab6384-8c2f-44f9-8640-e20412fd8a9f
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /schedules:
+    post:
+      tags:
+        - schedule
+      summary: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                clientId: 5f254205-8140-450a-a8b8-af0514d10e61
+                procedures:
+                  - 9cc0d396-64cb-42e1-949e-d02db61af551
+                  - 47f278d0-25d2-4cdd-824e-ab16712db28c
+                date: 2021-09-08 15:00
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - schedule
+      summary: update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                date: 2021-09-09 17:00
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+          example: 6f35af27-f930-4c17-879b-87a47d652664
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - schedule
+      summary: delete
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+          example: 6f35af27-f930-4c17-879b-87a47d652664
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /schedules/client/{id}:
+    get:
+      tags:
+        - schedule
+      summary: get by client
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: 60c0f9a3-bfdc-412a-8e2b-e0e65e142b06
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /schedules/{id}:
+    get:
+      tags:
+        - schedule
+      summary: get by schedule
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: 6f35af27-f930-4c17-879b-87a47d652664
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /schedules/range:
+    get:
+      tags:
+        - schedule
+      summary: get by time range
+      parameters:
+        - name: startDate
+          in: query
+          schema:
+            type: string
+          example: '2021-09-07'
+        - name: endDate
+          in: query
+          schema:
+            type: string
+          example: '2021-09-08'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
